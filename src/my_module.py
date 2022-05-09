@@ -54,3 +54,6 @@ def get_cheapest_hotel(number):   #DO NOT change the function's name
 
     return cheapest_hotel
     
+# descomente as proximas duas linhas para entrada via terminal
+#i = input("")
+#print(get_cheapest_hotel(i))
