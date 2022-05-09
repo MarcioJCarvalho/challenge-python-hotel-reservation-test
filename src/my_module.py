@@ -6,9 +6,6 @@ def get_cheapest_hotel(number):   #DO NOT change the function's name
     bridgewood = ["Bridgewood", 160.00, 60.00, 110.00, 50.00]
     ridgewood = ["Ridgewood", 220.00, 150.00, 100.00, 40.00]
 
-    lakewood.append(400.00)
-    print(lakewood)
-
     data = number.split(":")
     client_type = data[0]
     dates = data[1]
@@ -39,10 +36,21 @@ def get_cheapest_hotel(number):   #DO NOT change the function's name
     else:
         print("tipo de cliente invalido!")
 
-    print(lakewood)
-    print(bridgewood)
-    print(ridgewood)
+    # retornando o hotel mais barato
+    if(lakewood[5] < bridgewood[5] and lakewood[5] < ridgewood[5]):
+        cheapest_hotel = lakewood[0]
+    elif(bridgewood[5] < lakewood[5] and bridgewood[5] < ridgewood[5]):
+        cheapest_hotel = bridgewood[0]
+    elif(ridgewood[5] < lakewood[5] and ridgewood[5] < bridgewood[5]):
+        cheapest_hotel = ridgewood[0]
+    elif(lakewood[5] == bridgewood[5] and bridgewood[5] == ridgewood[5]):
+        cheapest_hotel = ridgewood[0]
+    elif(ridgewood[5] == lakewood[5] or ridgewood[5] == bridgewood[5]):
+        cheapest_hotel = ridgewood[0]
+    elif(lakewood[5] == bridgewood[5]):
+        cheapest_hotel = bridgewood[0]
+    else:
+        cheapest_hotel = lakewood[0]
 
     return cheapest_hotel
-
-get_cheapest_hotel("Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)")
+    
